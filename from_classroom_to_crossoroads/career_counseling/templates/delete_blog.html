@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Blog Post | Crossroads{% endblock %}
+{% load static %}
+{% block content %}
+<section class="delete-blog-section">
+    <div class="delete-blog-card">
+        <h2>Are you sure you want to delete this post?</h2>
+        <div class="blog-preview">
+            <h3>{{ blog_post.title }}</h3>
+            <p>{{ blog_post.content|truncatewords:20 }}</p>
+            {% if blog_post.image %}
+                <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}">
+            {% else %}
+                <img src="{% static 'images/default_blog.jpg' %}" alt="Default Blog Image">
+            {% endif %}
+        </div>
+        <form method="POST" class="delete-form">
+            {% csrf_token %}
+            <button type="submit" class="btn-danger">Yes, Delete</button>
+            <a href="{% url 'blog' %}" class="btn-primary">Cancel</a>
+        </form>
+    </div>
+</section>
+{% endblock %}

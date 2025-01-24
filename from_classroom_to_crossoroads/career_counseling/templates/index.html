@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction and Career Counseling</title>
+</head>
+<body>
+    <h1>Dropout Prediction Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" min="10" max="100" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="education_level">Current Education Level:</label>
+        <select name="education_level" required>
+            <option value="High School">High School</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Postgraduate">Postgraduate</option>
+        </select>
+
+        <label for="dropout_reason">Dropout Reason:</label>
+        <select name="dropout_reason" required>
+            <option value="1">Financial difficulties</option>
+            <option value="2">Personal reasons (health, family obligations, etc.)</option>
+            <option value="3">Dissatisfaction with the curriculum</option>
+            <option value="4">Lack of interest in chosen field of study</option>
+            <option value="5">Other</option>
+        </select>
+
+        <label for="challenges">Challenges:</label>
+        <select name="challenges" required>
+            <option value="1">Academic pressure</option>
+            <option value="2">Financial constraints</option>
+            <option value="3">Personal issues</option>
+            <option value="4">Lack of interest in the subject</option>
+            <option value="5">Other</option>
+        </select>
+
+        <label for="support_importance">Support Importance (1-5):</label>
+        <input type="number" name="support_importance" min="1" max="5" required>
+
+        <label for="interests">What subjects or fields are you interested in?</label>
+        <input type="text" name="interests" placeholder="e.g., Science, Arts, Engineering" required>
+
+        <label for="career_aspirations">What is your dream career?</label>
+        <input type="text" name="career_aspirations" placeholder="e.g., Doctor, Engineer, Artist" required>
+
+        <button type="submit">Predict and Get Career Guidance</button>
+    </form>
+</body>
+</html>

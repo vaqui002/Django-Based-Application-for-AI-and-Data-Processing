@@ -1,0 +1,7 @@
+dropout_risk,risk_count,month,monthly_count,reason,reason_count,gender,gender_count,support_type,support_count,age_group,age_group_count,study_hours,study_hours_count,region,region_count
+Low,150,Jan,10,Financial Issues,25,Male,55,Counseling,15,15-20,60,< 2 hours,20,Urban,70
+Medium,80,Feb,12,Personal Reasons,20,Female,45,Mentorship,10,21-25,40,2-4 hours,50,Rural,30
+High,70,Mar,8,Academic Issues,30,Male,60,Financial Support,20,15-20,50,4-6 hours,30,Urban,40
+Low,100,Apr,14,Health Issues,15,Female,40,Academic Support,18,21-25,35,2-4 hours,40,Rural,35
+Medium,85,May,11,Other,18,Male,58,Family Support,17,15-20,55,< 2 hours,25,Urban,45
+High,75,Jun,9,Academic Issues,22,Female,42,Financial Support,22,21-25,30,4-6 hours,28,Rural,25

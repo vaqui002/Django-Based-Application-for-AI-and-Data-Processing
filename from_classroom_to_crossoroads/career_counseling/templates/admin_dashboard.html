@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="dashboard">
+    <h2>Dropout Analysis Reports</h2>
+    <div class="chart-row">
+        <div class="chart-card">
+            <canvas id="dropoutRiskChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <canvas id="monthlyDropoutChart"></canvas>
+        </div>
+    </div>
+    <div class="chart-row">
+        <div class="chart-card">
+            <canvas id="dropoutReasonsChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <canvas id="genderRiskChart"></canvas>
+        </div>
+    </div>
+    <div class="chart-row">
+        <div class="chart-card">
+            <canvas id="supportNeedsChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <canvas id="ageGroupChart"></canvas>
+        </div>
+    </div>
+    <div class="chart-row">
+        <div class="chart-card">
+            <canvas id="studyHoursChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <canvas id="regionChart"></canvas>
+        </div>
+    </div>
+
+</section>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const dropoutRiskData = JSON.parse('{{ dropout_risk_data|safe }}');
+    const monthlyDropoutData = JSON.parse('{{ monthly_dropout_data|safe }}');
+    const dropoutReasonsData = JSON.parse('{{ dropout_reasons_data|safe }}');
+    const genderRiskData = JSON.parse('{{ gender_risk_data|safe }}');
+    const supportNeedsData = JSON.parse('{{ support_needs_data|safe }}');
+    const ageGroupData = JSON.parse('{{ age_group_data|safe }}');
+    const studyHoursData = JSON.parse('{{ study_hours_data|safe }}');
+    const regionData = JSON.parse('{{ region_data|safe }}');
+</script>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

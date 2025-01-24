@@ -1,0 +1,1085 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;
+    line-height: 1.6;
+    padding-top: 60px; 
+}
+
+/* Header */
+header {
+    background-color: #1f2028;
+    padding: 20px 20px;
+    width: 100%;
+    position: fixed; /* Make header fixed at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure header stays above other content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for separation */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #31a2e3;
+}
+
+/* Main Landing Section */
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 85vh;
+    padding: 0 10%;
+    background: #1f2028;  /* dark background as in image one */
+}
+
+.landing .text {
+    flex: 1;
+    text-align: left;
+    color: white;
+}
+
+.landing .text h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.landing .text h2 {
+    font-size: 2rem;
+    color: #00cccc; /* Add some color to the subheading as per image one */
+    margin-bottom: 20px;
+}
+
+.landing .text p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ddd;  /* Lighter text */
+}
+
+.landing .image {
+    flex: 1;
+    background: url('/static/images/image3.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80%;
+    max-width: 100%;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #ff3366;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    transition: background 0.3s;
+    box-shadow: 0px 10px 20px rgba(255, 51, 102, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #e6004c;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .landing {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        height: 40vh; /* Adjust as necessary */
+    }
+
+    .landing .text {
+        text-align: center;
+    }
+}
+
+
+
+/* Auth Section (Login/Signup) */
+.auth-section {
+    background-color: #fff;
+    padding: 50px;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-section input, .auth-section button {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.auth-section button {
+    background-color: #31a2e3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.auth-section button:hover {
+    background-color: #2288b7;
+}
+
+.auth-section p {
+    text-align: center;
+}
+
+.auth-section a {
+    color: #31a2e3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Blog Section */
+.blog-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.blog-title {
+    font-size: 2.8rem;
+    color: #ff3366;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: calc(45% - 40px);
+    max-width: 400px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.blog-content h3 {
+    font-size: 1.8rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #888888;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-read-more,
+.btn-like {
+    color: #ff3366;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.btn-read-more:hover,
+.btn-like:hover {
+    color: #e6004c;
+}
+
+/* Comments Section Styling */
+.comments-section {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section h4 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #333333;
+    font-weight: bold;
+}
+
+/* Comment Input Box */
+.comments-section textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: vertical;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease-in-out;
+    outline: none;
+}
+
+.comments-section textarea:focus {
+    border-color: #3498db; /* Blue border when focused */
+}
+
+/* Comment Button Styling */
+.comments-section button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 6px 12px rgba(52, 152, 219, 0.3);
+    margin-top: 10px;
+}
+
+.comments-section button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Responsive Styles for Comment Section */
+@media (max-width: 768px) {
+    .comments-section textarea {
+        font-size: 0.95rem;
+    }
+
+    .comments-section button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Styling for Blog Section */
+@media (max-width: 1024px) {
+    .blog-card {
+        width: calc(50% - 20px);
+    }
+
+    .blog-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        width: 100%;
+    }
+
+    .blog-content {
+        text-align: center;
+    }
+
+    .blog-actions {
+        justify-content: center;
+    }
+
+    .btn-like,
+    .btn-read-more {
+        font-size: 1rem;
+    }
+}
+
+
+/* Dropout Analysis Section */
+.analysis-section {
+    background-color: #ffffff;
+    padding: 50px;
+    text-align: center;
+}
+
+.analysis-section h2 {
+    color: #31a2e3;
+    margin-bottom: 20px;
+}
+
+.analysis-section form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.analysis-section button {
+    background-color: #31a2e3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.analysis-section button:hover {
+    background-color: #2288b7;
+}
+
+/* Admin Dashboard */
+.dashboard {
+    padding: 50px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.dashboard h2 {
+    font-size: 2.8rem;
+    color: #3498db;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Chart Row Layout */
+.chart-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Reduced the gap for better balance */
+    max-width: 1400px;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Chart Card Styling */
+.chart-card {
+    background: #ffffff;
+    flex: 1 1 calc(50% - 20px); /* Each card takes about 50% width, with gap considered */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Canvas Adjustment */
+canvas {
+    width: 100% !important;
+    max-height: 300px !important; /* Limit the height to make it visually smaller */
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+    .chart-row {
+        flex-direction: column;
+    }
+
+    .chart-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dashboard h2 {
+        font-size: 2.2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .landing {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        width: 100%;
+        height: 40vh; /* Adjust as necessary */
+    }
+}
+.auth-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #2980b9;
+}
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* Features Section */
+.features {
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 80px 50px;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: #ff3366;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+
+.feature-cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #1c1c1c;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    max-width: 30%;
+    text-align: left;
+    flex: 1 1 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card h3 {
+    font-size: 2rem;
+    color: #ff3366;
+    margin-bottom: 20px;
+}
+
+.feature-card p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .feature-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        max-width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-card p {
+        font-size: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* Footer Section */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #1f2028;
+    color: white;
+}
+
+.contact-section, .footer-info {
+    flex: 1;
+    margin: 20px;
+}
+
+.contact-section {
+    max-width: 50%;
+}
+
+.contact-section h2, .footer-info h2 {
+    font-size: 2.2rem;
+    color: #ff3366;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #bbb;
+}
+
+.contact-form button {
+    background-color: #ff3366;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0px 10px 20px rgba(255, 51, 102, 0.3);
+}
+
+.contact-form button:hover {
+    background-color: #e6004c;
+    transform: translateY(-5px);
+}
+
+.footer-info {
+    max-width: 45%;
+    text-align: left;
+}
+
+.footer-info p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.footer-info strong {
+    color: #ff3366;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #ff3366;
+    font-size: 1.8rem;
+    margin-right: 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #e6004c;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-section, .footer-info {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+
+    .contact-form input, .contact-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .footer-info h2 {
+        font-size: 1.8rem;
+    }
+}
+/* Create Blog Section */
+.create-blog-section {
+    background-color: #f9f9f9;
+    padding: 60px;
+    max-width: 700px;
+    margin: 50px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.create-blog-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+    color: #ff3366;
+    text-align: center;
+}
+
+.create-blog-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-blog-form input,
+.create-blog-form textarea,
+.create-blog-form button {
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.create-blog-form input,
+.create-blog-form textarea {
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.create-blog-form button {
+    background-color: #31a2e3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.create-blog-form button:hover {
+    background-color: #2288b7;
+}
+
+
+
+/* Delete Blog Section */
+.delete-blog-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.delete-blog-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: center;
+}
+
+.delete-blog-card h2 {
+    color: #ff3366;
+    margin-bottom: 20px;
+}
+
+.blog-preview {
+    margin-bottom: 20px;
+}
+
+.blog-preview h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-preview p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.blog-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.delete-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    background-color: #ff3366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    background-color: #e6004c;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* Chatbot Section */
+.chatbot-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1f2028; /* Matching the header color */
+    padding: 20px;
+}
+
+.chatbot-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+}
+
+.chatbot-container h2 {
+    font-size: 2rem;
+    color: #ff3366;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.chat-window {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    border: 2px solid #e6e6e6;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+}
+
+.user-message {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+    align-self: flex-end;
+    max-width: 80%;
+    display: inline-block;
+    clear: both;
+    font-weight: bold;
+}
+
+.bot-message {
+    background-color: #31a2e3;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    max-width: 80%;
+    display: inline-block;
+    clear: both;
+    font-weight: bold;
+}
+
+.chat-input-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #e6e6e6;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.chat-input:focus {
+    border-color: #ff3366;
+}
+
+.chat-input::placeholder {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.chat-send-btn {
+    padding: 15px 25px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+}
+
+.chat-send-btn:hover {
+    background-color: #e6004c;
+    transform: translateY(-2px);
+}
+
+/* Result Section */
+.result-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.result-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.result-title {
+    font-size: 2.6rem;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.result-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    font-size: 1.1rem;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.prediction-section {
+    margin-top: 30px;
+    background: #e6f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.prediction-title {
+    font-size: 2rem;
+    color: #ff3366;
+    margin-bottom: 15px;
+}
+
+.prediction-result {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.suggestions-section {
+    margin-top: 30px;
+}
+
+.suggestions-title {
+    font-size: 2rem;
+    color: #ff3366;
+    margin-bottom: 15px;
+}
+
+.suggestions-list {
+    margin-top: 15px;
+    padding-left: 25px;
+    color: #555;
+    list-style-type: disc;
+}
+
+.suggestions-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.result-actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #d5d5d5;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s;
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+    margin-right: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #2e86c1;
+}
+

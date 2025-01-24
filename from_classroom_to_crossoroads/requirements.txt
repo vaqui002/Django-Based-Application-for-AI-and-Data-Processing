@@ -1,0 +1,16 @@
+beautifulsoup4==4.11.1
+Django==5.1.2
+Flask==2.2.2
+google==3.0.0
+google-ai-generativelanguage==0.3.3
+google-api-core==2.12.0
+huggingface-hub==0.25.2
+humanfriendly==10.0
+tensorflow
+tensorflow-estimator
+tensorflow-hub
+tensorflow-intel
+transformers==4.45.2
+joblib==1.1.0
+Pillow
+pandas

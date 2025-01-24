@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login | Crossroads{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <h2>Login to Your Account</h2>
+    <form method="POST" class="auth-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.username.label_tag }} {{ form.username }}  <!-- Username field -->
+            {{ form.username.errors }}
+        </div>
+        <div>
+            {{ form.password.label_tag }} {{ form.password }}  <!-- Password field -->
+            {{ form.password.errors }}
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+</section>
+{% endblock %}

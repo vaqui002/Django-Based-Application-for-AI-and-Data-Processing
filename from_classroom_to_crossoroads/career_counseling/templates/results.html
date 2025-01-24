@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Dropout Analysis Result | Crossroads{% endblock %}
+{% load static %}
+{% block content %}
+<section class="result-section">
+    <div class="result-card">
+        <h2 class="result-title">Dropout Analysis and Career Counseling for {{ name }}</h2>
+        <div class="result-details">
+            <div class="detail-item">
+                <strong>Age:</strong> <span>{{ age }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Gender:</strong> <span>{{ gender }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Current Education Level:</strong> <span>{{ education_level }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Dropout Reason:</strong> <span>{{ dropout_reason }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Challenges Faced:</strong> <span>{{ challenges }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Importance of Support:</strong> <span>{{ support_importance }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Interests:</strong> <span>{{ interests }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Career Aspirations:</strong> <span>{{ career_aspirations }}</span>
+            </div>
+        </div>
+
+        <div class="prediction-section">
+            <h3 class="prediction-title">Prediction Result</h3>
+            <div class="prediction-result">
+                <p>{{ prediction }}</p>
+            </div>
+        </div>
+
+        <div class="suggestions-section">
+            <h3 class="suggestions-title">Career Counseling Suggestions</h3>
+            <p>Based on your profile and challenges, here are some suggestions for your next steps:</p>
+            <ul class="suggestions-list">
+                <li>If you are interested in {{ interests }}, consider exploring career paths such as {{ career_aspirations }}.</li>
+                <li>If you struggle with {{ challenges }}, consider joining support groups or mentorship programs that align with your interests in {{ interests }}.</li>
+                <li>With your focus on personalized support, explore institutions or programs that provide tailored counseling and mentorship.</li>
+                <li>If you are uncertain about the next steps, exploring internships or online courses in {{ interests }} could be beneficial.</li>
+            </ul>
+        </div>
+
+        <div class="result-actions">
+            <a href="{% url 'chatbot' %}" class="btn-primary">Chat with our Career Counseling Bot</a>
+            <a href="{% url 'dropout_analysis' %}" class="btn-secondary">Go back to the form</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

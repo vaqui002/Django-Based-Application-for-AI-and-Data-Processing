@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog | Crossroads{% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="blog-section">
+    <h2 class="blog-title">Stay Informed with Our Latest Blogs</h2>
+    <div class="blog-list">
+        {% for blog in blog_posts %}
+        <article class="blog-card">
+            {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            {% else %}
+                <img src="{% static 'images/default_blog.jpg' %}" alt="Default Blog Image">
+            {% endif %}
+            <div class="blog-content">
+                {% if user.is_authenticated and user == blog.author %}
+                    <a href="{% url 'delete_blog' blog.id %}" class="delete-icon">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                {% endif %}
+                <h3>{{ blog.title }}</h3>
+                <p>{{ blog.content|truncatewords:20 }}</p>
+                <p class="blog-meta"><i class="fa fa-user"></i> Posted by {{ blog.author.username }} on {{ blog.created_at|date:"F d, Y" }}</p>
+
+                <div class="blog-actions">
+                    <a href="#" class="btn-read-more" data-blog-id="{{ blog.id }}">Read Comments</a>
+                    <a href="{% url 'like_blog' blog.id %}" class="btn-like">
+                        <i class="fa fa-thumbs-up"></i> Like ({{ blog.total_likes }})
+                    </a>
+                </div>
+
+                <!-- Comments Section (Initially Hidden) -->
+                <div class="comments-section" id="comments-{{ blog.id }}" style="display: none;">
+                    <h4>Comments:</h4>
+                    <div class="comment-list">
+                        {% for comment in blog.comments.all %}
+                        <div class="comment">
+                            <p><strong>{{ comment.author.username }}</strong> on {{ comment.created_at|date:"F d, Y H:i" }}</p>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if user.is_authenticated %}
+                    <form method="POST" action="{% url 'add_comment' blog.id %}">
+                        {% csrf_token %}
+                        <textarea name="comment" class="form-control" placeholder="Add a comment..." required></textarea>
+                        <button type="submit" class="btn-primary">Comment</button>
+                    </form>
+                    {% else %}
+                    <p><a href="{% url 'login' %}">Login</a> to add a comment.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="create-post-btn">
+        <a href="{% url 'create_blog' %}" class="btn-primary">Create New Post</a>
+    </div>
+</section>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

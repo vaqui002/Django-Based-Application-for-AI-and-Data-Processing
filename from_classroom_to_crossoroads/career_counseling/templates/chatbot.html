@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Chatbot | Crossroads{% endblock %}
+
+{% block content %}
+<section class="chatbot-section">
+    <div class="chatbot-container">
+        <h2>Career Counseling Chatbot</h2>
+        <div id="chatWindow" class="chat-window">
+            <div class="bot-message">Bot: Hello! I am here to assist you with your career queries. Ask me anything about career options, study tips, or challenges you face.</div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="userInput" class="chat-input" placeholder="Type your message here..." onkeydown="if (event.key === 'Enter') sendMessage();">
+            <button onclick="sendMessage()" class="btn-primary chat-send-btn">Send</button>
+        </div>
+    </div>
+</section>
+
+<script>
+function sendMessage() {
+    const userMessage = document.getElementById('userInput').value;
+    const chatWindow = document.getElementById('chatWindow');
+    
+    // Display the user's message in the chat window
+    if (userMessage.trim() !== "") {
+        chatWindow.innerHTML += `<div class="user-message">You: ${userMessage}</div>`;
+        document.getElementById('userInput').value = '';
+
+        // Send the message to the server
+        fetch(`/chatbot_response/?message=${encodeURIComponent(userMessage)}`)
+            .then(response => response.json())
+            .then(data => {
+                // Display the chatbot's response in the chat window
+                chatWindow.innerHTML += `<div class="bot-message">Bot: ${data.response}</div>`;
+                chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the latest message
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                chatWindow.innerHTML += `<div class="bot-message">Bot: Sorry, something went wrong.</div>`;
+            });
+    } else {
+        alert("Please enter a message before sending.");
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Crossroads: Find Your Path{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Welcome</a></li>
+                
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'chatbot' %}">Chatbot</a></li>
+                    <li><a href="{% url 'dropout_analysis' %}">Career Counseling</a></li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <li><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-form-area">
+                    <h2>Contact Us</h2>
+                    <p>We are here to help you with your career choices. Feel free to reach out!</p>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Contact Number" required>
+                        <textarea placeholder="Message" rows="5" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-details">
+                    <h2>Get in Touch</h2>
+                    <p><strong>Address:</strong> 123 Crossroads Lane, Ashanti Region, Ghana</p>
+                    <p><strong>Email:</strong> info@crossroads.com</p>
+                    <p><strong>Phone:</strong> +233 123 456 789</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
